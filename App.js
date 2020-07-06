@@ -18,4 +18,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    color: 'white',
+    fontFamily: 'Montserrat',
+    fontSize: 50,
+  },
 });
