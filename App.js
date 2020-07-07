@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Icon } from 'react-native-vector-icons/Icon';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bruh <Icon name="ios-book" /></Text>
+      <Text style={styles.text}>Bruh</Text>
+      <Icon name="ios-book" />
       <StatusBar style="auto" />
     </View>
   );
