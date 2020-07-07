@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bruh</Text>
+      <Text style={styles.text}>Bruh <Icon name="ios-book" /></Text>
       <StatusBar style="auto" />
     </View>
   );
