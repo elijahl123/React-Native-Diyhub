@@ -1,62 +1,86 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+import {useFonts, OpenSans_700Bold, OpenSans_400Regular } from '@expo-google-fonts/open-sans';
+
+const theme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        primary: '#037f8c',
+        background: '#1b262c',
+        text: '#FFF',
+    },
+}
+
 
 function Search() {
+    let [fontsLoaded] = useFonts({
+        OpenSans_700Bold,
+        Montserrat_400Regular
+    });
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Search!</Text>
+        <View style={styles.screen}>
+            <Text style={{ color: 'white'}}>Garage!</Text>
         </View>
     );
 }
 
 function Create() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Notifications!</Text>
+        <View style={styles.screen}>
+            <Text style={{ color: 'white'}}>Create!</Text>
         </View>
     );
 }
 
 function Discover() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Discover!</Text>
+        <View style={styles.screen}>
+            <Text style={{ color: 'white'}}>Discover!</Text>
         </View>
     );
 }
 
 function Profile() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Profile!</Text>
+        <View style={styles.screen}>
+            <Text style={{ color: 'white'}}>Profile!</Text>
         </View>
     );
 }
 
 const Tab = createMaterialBottomTabNavigator();
 
-function MyTabs() {
+function Tabs() {
+    let [fontsLoaded] = useFonts({
+        OpenSans_700Bold,
+        Montserrat_400Regular
+    });
     return (
         <Tab.Navigator
             initialRouteName="Feed"
             activeColor="#FFF"
-            labelStyle={{ fontSize: 12 }}
-            style={{ backgroundColor: 'tomato' }}
+            barStyle= {{
+                backgroundColor: '#037F8C',
+            }}
         >
             <Tab.Screen
-                name="Search"
+                name="Garage"
                 component={Search}
                 options={{
-                    tabBarLabel: 'Search',
+                    tabBarLabel: 'Garage',
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="magnify" color={color} size={26} />
+                        <MaterialCommunityIcons name="home" color={color} size={26} />
                     ),
+
+
                 }}
+
             />
             <Tab.Screen
                 name="Create"
@@ -93,8 +117,20 @@ function MyTabs() {
 }
 
 export default function App() {
+    let [fontsLoaded] = useFonts({
+        Montserrat_400Regular,
+    });
     return (
-        <NavigationContainer>
-            <MyTabs />
+        <NavigationContainer theme={theme}>
+            <Tabs />
         </NavigationContainer>
     );}
+
+const styles = StyleSheet.create({
+   screen: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center',
+       backgroundColor: '#1B262C'
+   }
+});
