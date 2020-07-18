@@ -5,18 +5,53 @@ import Collapsible from "react-native-collapsible";
 import styles from '../static/style'
 import {primaryColor} from "../static/style";
 import {Montserrat_400Regular} from "@expo-google-fonts/dev";
+import Accordion from 'react-native-collapsible/Accordion'
+
+const SECTIONS = [
+    {
+      title: 'First',
+      content: 'Lorem ipsum...',
+    },
+    {
+      title: 'Second',
+      content: 'Lorem ipsum...',
+    },
+  ];
 
 export default class Garage extends Component{
 
     state = {
         activeSections: [],
-        collapsed: true,
-        multipleSelect: false,
-    };
+      };
 
-    toggleExpanded = () => {
-        this.setState({ collapsed: !this.state.collapsed });
-    };
+      _renderSectionTitle = section => {
+        return (
+          <View style={styles.content}>
+            <Text>{section.content}</Text>
+          </View>
+        );
+      };
+
+      _renderHeader = section => {
+        return (
+          <View style={styles.header}>
+            <Text style={styles.headerText}>{section.title}</Text>
+          </View>
+        );
+      };
+    
+      _renderContent = section => {
+        return (
+          <View style={styles.content}>
+            <Text>{section.content}</Text>
+          </View>
+        );
+      };
+    
+      _updateSections = activeSections => {
+        this.setState({ activeSections });
+      };
+
         render() {
             return (
                 <View style={styles.screen}>
@@ -28,19 +63,23 @@ export default class Garage extends Component{
                         placeholder='Search for Parts...'
                         style={styles.searchBar}
                     />
-                    <TouchableOpacity onPress={this.toggleExpanded}>
-                        <View style={styles.header}>
-                            <Text style={styles.headerText}>Single Collapsible</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <Collapsible collapsed={this.state.collapsed} align="center">
-                        <View style={styles.content}>
-                            <Text style={{fontFamily: 'Times New Roman',}}>
-                                Bacon ipsum dolor amet chuck turducken landjaeger tongue spare
-                                ribs
-                            </Text>
-                        </View>
-                    </Collapsible>
+                    < Accordion
+                    sections = {
+                        SECTIONS
+                    }
+                    activeSections = {
+                        this.state.activeSections
+                    }
+                    renderHeader = {
+                        this._renderHeader
+                    }
+                    renderContent = {
+                        this._renderContent
+                    }
+                    onChange = {
+                        this._updateSections
+                    }
+                    />
                 </View>
             );
         }
