@@ -1,10 +1,17 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import Constants from "expo-constants";
 
+export const primaryColor = '#037f8c';
+export const backColor = '#1b262c';
+export const lightAccent = '#70B6B6';
+export const darkAccent = '#5e8a95';
+export const lightBack = '#f0e8ef';
+
+
 export default StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: '#1B262C',
+        backgroundColor: backColor,
         justifyContent: 'flex-start',
         width: Dimensions.get("screen").width,
         paddingTop: Constants.statusBarHeight,
@@ -21,7 +28,7 @@ export default StyleSheet.create({
         marginBottom: 20,
     },
     header: {
-        backgroundColor: '#F5FCFF',
+        backgroundColor: lightBack,
         padding: 10,
     },
     headerText: {
@@ -31,7 +38,7 @@ export default StyleSheet.create({
     },
     content: {
         padding: 20,
-        backgroundColor: '#fff',
+        backgroundColor: lightBack,
     },
     active: {
         backgroundColor: 'rgba(255,255,255,1)',
@@ -45,7 +52,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
     },
     selector: {
-        backgroundColor: '#F5FCFF',
+        backgroundColor: lightBack,
         padding: 10,
     },
     activeSelector: {

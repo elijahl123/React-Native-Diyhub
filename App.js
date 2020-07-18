@@ -8,7 +8,6 @@ import Create from "./screens/create";
 import Discover from "./screens/discover";
 import Profile from "./screens/profile";
 
-
 const theme = {
     ...DefaultTheme,
     colors: {
