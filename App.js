@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme, Link} from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {StatusBar, View} from 'react-native';
 import Garage from './screens/garage';
 import Create from "./screens/create";
 import Discover from "./screens/discover";
 import Profile from "./screens/profile";
+import {Image} from "react-native";
+import styles, {primaryColor} from './static/style'
+import {Icon} from "react-native-elements";
 
 const theme = {
     ...DefaultTheme,
@@ -24,7 +28,7 @@ class Tabs extends Component {
     render() {
         return (
             <Tab.Navigator
-                initialRouteName="Feed"
+                initialRouteName="Discover"
                 activeColor="#FFF"
                 barStyle= {{
                     backgroundColor: '#037F8C',
@@ -36,7 +40,7 @@ class Tabs extends Component {
                     options={{
                         tabBarLabel: 'Garage',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="home" color={color} size={26} />
+                            <MaterialCommunityIcons name="warehouse" color={color} size={26} />
                         ),
 
 
@@ -81,6 +85,12 @@ class Tabs extends Component {
 export default function App() {
         return (
             <NavigationContainer theme={theme}>
+                <StatusBar barStyle={"light-content"} />
+                <View style={styles.imgContainer}>
+                    <Icon name={"chevron-left"} type={'font-awesome'} style={{paddingLeft: 10, opacity: 0}} color={'#F2D8C2'} />
+                <Image source={require('./img/name.png')} style={styles.img} />
+                <Icon name={"cog"} type={"font-awesome"} style={{paddingRight: 10}} color={'#F2D8C2'} />
+                </View>
                 <Tabs />
             </NavigationContainer>
         );
