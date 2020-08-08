@@ -20,14 +20,14 @@ export default StyleSheet.create({
         flexDirection: 'column',
     },
     img: {
-        width: 2271 / 15,
+        width: 1679 / 15,
         height: 500 / 15,
     },
     imgContainer: {
         justifyContent: 'space-between',
         backgroundColor: primaryColor,
         alignItems: 'center',
-        paddingTop: Constants.statusBarHeight,
+        paddingTop: Constants.statusBarHeight + 5,
         paddingBottom: Constants.statusBarHeight / 3,
         flexDirection: 'row',
     },
@@ -140,5 +140,44 @@ export default StyleSheet.create({
         fontWeight: '500',
         fontSize: 25,
         padding: 10,
+    },
+    bio: {
+        marginBottom: 20,
+    },
+    gridContainer: {
+        backgroundColor: primaryColor,
+        width: width,
+        marginTop: 30,
+        paddingBottom: 20,
+    },
+    gridHeader: {
+        margin: 20,
+        fontSize: 30,
+        color: lightBack,
+        textAlign: 'center',
+        fontWeight: '700',
+    },
+    item: {
+        flex: 1,
+        margin: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    profileGrid: {
+        margin: 0,
+    },
+    scrollView: {
+        width: width,
+        paddingBottom: 0,
+    },
+    imgGrid: {
+        resizeMode: 'cover',
+        width: width / 2,
+        height: width / 2,
+        borderColor: 'black',
+        borderRadius: 4,
+        backgroundColor: backColor,
+        padding: 1,
+        borderWidth: 0.5,
     }
 })

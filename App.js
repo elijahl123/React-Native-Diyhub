@@ -12,6 +12,7 @@ import {Image} from "react-native";
 import styles, {primaryColor} from './static/style'
 import {Icon} from "react-native-elements";
 
+
 const theme = {
     ...DefaultTheme,
     colors: {
@@ -83,16 +84,17 @@ class Tabs extends Component {
 }
 
 export default function App() {
-        return (
-            <NavigationContainer theme={theme}>
-                <StatusBar barStyle={"light-content"} />
-                <View style={styles.imgContainer}>
-                    <Icon name={"chevron-left"} type={'font-awesome'} style={{paddingLeft: 10, opacity: 0}} color={'#F2D8C2'} />
-                <Image source={require('./img/name.png')} style={styles.img} />
-                <Icon name={"cog"} type={"font-awesome"} style={{paddingRight: 10}} color={'#F2D8C2'} />
-                </View>
-                <Tabs />
-            </NavigationContainer>
-        );
+    return (
+        <NavigationContainer theme={theme}>
+            <StatusBar barStyle={"light-content"}/>
+            <View style={styles.imgContainer}>
+                <Icon name={"chevron-left"} type={'font-awesome'} style={{paddingLeft: 10, opacity: 0}}
+                      color={'#F2D8C2'}/>
+                <Image source={require('./img/name.png')} style={styles.img}/>
+                <Icon name={"cog"} type={"font-awesome"} style={{paddingRight: 10}} color={'#F2D8C2'}/>
+            </View>
+            <Tabs/>
+        </NavigationContainer>
+    );
 }
 

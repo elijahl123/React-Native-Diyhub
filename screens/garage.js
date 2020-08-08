@@ -76,7 +76,7 @@ export default class Garage extends Component{
                         value={search}
                         lightTheme={true}
                     />
-                    < Accordion
+                    <Accordion
                     sections = {
                         SECTIONS
                     }
